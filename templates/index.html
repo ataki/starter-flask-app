@@ -1,6 +1,84 @@
 {% extends "base.html" %}
 {% block content %}
-    <p>
-        Hello. Welcome to your new website!
-    </p>
+<div class="container-fluid">
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+        <div class="alert alert-info" role="alert">{{ message }}</div>
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+    <div class="row header">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="banner">
+                <h1>Skincerity</h1>
+                <p>Flawlessly Smooth Skin, On-Demand</p>
+            </div>
+            
+            <div class="call-to-actions">
+                <div class="call-to-action">
+                    <button type="button" class="hollow" id="cta-1">I'm an esthetician</button>
+                </div>
+                <div class="call-to-action">
+                    <button type="button" class="hollow" id="cta-2">I'm a waxer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row signup esthetician">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="signup-form">
+                <h2>Estheticians, connect with customers closest to you.</h2>
+                <br/>
+                <p>
+As an esthetician in a salon, you’re locked down by salon hours and locations, and have little control over set hours and wages.<br/>
+<b>Skincerity gives you access to hundreds of customers nearest you, and operate on your schedule.</b><br/>
+<a href="/benefits">Learn about more benefits here &rsaquo;</a><br/><br/>
+Interested in becoming a Skincerity esthetician? Sign up below!
+                </p>
+                <form action="/signup" method="post">
+                    <input type="text" name="email" />
+                    <input type="hidden" name="job" value="esthetician" />
+                    <br/><br/>
+                    <button type="submit" class="hollow">
+                        Sign Me Up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row signup waxer">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="signup-form">
+                <h2>Waxing doesn't have to be a painful experience.</h2>
+                <br/>
+                <p>
+We take the hassle out of booking and match you with high quality, personalized estheticians.<br/>
+Interested? Sign up and we'll notify you when the app is ready.
+                </p>
+                <form action="/signup" method="post">
+                    <input type="text" name="email" />
+                    <input type="hidden" name="job" value="esthetician" />
+                    <br/><br/>
+                    <button type="submit" class="filled">
+                        Notify me when ready
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row about" style="padding: 20px 0;">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h4>Questions? Contact skinceritas@gmail.com for more details</h4>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

@@ -80,11 +80,13 @@ def signup():
         else:
             timestamp = str(datetime.datetime.now())
             db = get_db()
-            db.execute('insert into signup (email, timestamp) values (? ?)',
-                    [request.form['email'], timestamp])
+            timestamp = str(datetime.datetime.now())
+            db.execute('insert into entries (email, timestamp, job) values (?, ?, ?)',
+                    [request.form['email'], timestamp, request.form['job']])
             db.commit()
             flash('Thanks for signing up!')
-    return render_template('login.html', error=error)
+            return redirect(url_for('index'))
+    return render_template('index.html', error=error)
 
 
 if __name__ == "__main__":
