@@ -174,3 +174,9 @@ button.filled {
 .messages .alert {
     border-radius: 0;
 }
+
+@media(max-width: 749px) {
+    .banner {
+        margin-top: -200px;
+    }
+}
